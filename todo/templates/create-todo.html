@@ -5,13 +5,20 @@
     </div>
 
     <div class="col">
-        <form method="POST" action="/todo/create-todo">
+        {% if not id %}
+            <form method="POST" action="/todo/create-todo/">
+        {% else %}
+            <form method="POST" action="/todo/edit-todo/{{id}}/">
+        {% endif %}
 
             {% csrf_token %}
             
             {{ form.as_p }}
-            <input type="submit" value="Add">
-            {{request.user.id}}
+            {% if not id %}
+                <input type="submit" value="Add">
+            {% else %}
+                <input type="submit" value="Update">
+            {% endif %}
         </form>
     </div>
 </div>
