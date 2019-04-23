@@ -15,10 +15,29 @@
         </form>
     </div>
 </div>
-
 <div class="row">
     <div class="col-6"></div>
-    <div class="col-6"><span>Add To Do<img style="height: 40px;" src="{% static 'images/icon-add.png' %}"></span></div>
+    <div class="col-6">
+        <a href="{% url 'create_todo' %}"><img style="height: 40px;" src="{% static 'images/icon-add.png' %}">Add To Do</a>
+    </div>
+</div>
+<div class="row">
+    <table border="1">
+        <tr>
+            <th style="text-align: center;"></th>
+            <th style="text-align: center;">Title</th>
+            <th style="text-align: center;">description</th>
+        </tr>
+        
+        {% for todo in todos %}
+            <tr>
+                <td><input type="checkbox" name="todo" value={{todo.id}}></td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.description}}</td>
+            </tr>
+        {% endfor %}
+        
+    </table>
 </div>
 
 
