@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col">
+        <p>User <b style="color: blue;">{{user.username}}</b> is logged in successfully.</p>
+    </div>
+
+    <div class="col">
+        <form method="POST" action="/logout/">
+
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6"></div>
+    <div class="col-6"><span>Add To Do<img style="height: 40px;" src="{% static 'images/icon-add.png' %}"></span></div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row" style="margin-top: 30px;">
+    <div class="col">
+        <p>Hi <b style="color: blue;">{{user.username}}</b>, please create to-do here.</p>
+    </div>
+
+    <div class="col">
+        <form method="POST" action="/todo/create-todo">
+
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            <input type="submit" value="Add">
+            {{request.user.id}}
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById('id_user').value = {{request.user.id}}
+</script>
+
+{% endblock content %}
+
+
