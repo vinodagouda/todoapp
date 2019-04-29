@@ -1,6 +1,14 @@
-{% extends 'base.html' %} {% block content %}
-{% load static %}
-
+{% extends 'base.html' %} {% block content %} {% load static %}
+<style>
+    .txt:hover {
+        color: red;
+    }
+    
+    .txt {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
 <div class="row" style="margin-top: 30px;">
     <div class="col">
         <p>User <b style="color: blue;">{{user.username}}</b> is logged in successfully.</p>
@@ -22,23 +30,40 @@
     </div>
 </div>
 <div class="row">
-    <table border="1">
-        <tr>
-            <th style="text-align: center;"></th>
-            <th style="text-align: center;">Title</th>
-            <th style="text-align: center;">description</th>
-        </tr>
-        
-        {% for todo in todos %}
+    <div class="col-3">
+        <table>
             <tr>
-                <td><input type="checkbox" name="todo" value={{todo.id}}></td>
+                <th>To-Do Management</th>
+            </tr>
+            <tr>
+                <td class="txt" id="edit">Edit</td>
+            </tr>
+            <tr>
+                <td class="txt" id="delete">Delete</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-3">
+        <table border="1">
+            <tr>
+                <th style="text-align: center;"></th>
+                <th style="text-align: center;">Title</th>
+                <th style="text-align: center;">description</th>
+            </tr>
+
+            {% for todo in todos %}
+            <tr>
+                <td>
+                    <input type="checkbox" name="todo" class="todo-id" value={{todo.id}}>
+                </td>
                 <td>{{todo.title}}</td>
                 <td>{{todo.description}}</td>
             </tr>
-        {% endfor %}
-        
-    </table>
+            {% endfor %}
+
+        </table>
+    </div>
+    <div class="col-6"></div>
+
 </div>
-
-
 {% endblock content %}
