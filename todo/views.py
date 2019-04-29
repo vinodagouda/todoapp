@@ -45,3 +45,8 @@ def edit_todo(request, id=None):
         form = ToDoCreateForm(instance=obj)
     # locals() passes all available variables to front end, you can access it directly
     return render(request, "create-todo.html", locals())
+
+@login_required(login_url="")
+def delete_todo(request, id=None):
+    ToDoDetails.objects.filter(id=int(id)).delete()
+    return HttpResponseRedirect(reverse('login_success'))
