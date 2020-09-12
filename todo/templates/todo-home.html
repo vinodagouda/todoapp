@@ -9,41 +9,44 @@
         text-decoration: underline;
     }
 </style>
-<div class="row" style="margin-top: 30px;">
-    <div class="col">
-        <p>User <b style="color: blue;">{{user.username}}</b> is logged in successfully.</p>
+<!-- <div class="row" style="margin-top: 30px;">
+    <div class="col-6">
+        <p>Hi <b style="color: blue;">{{user.username}}</b>. You have logged in successfully!</p>
     </div>
 
-    <div class="col">
-        <form method="POST" action="/logout/">
+    <div class="col-6">
+        <form method="POST" action="/logout/" style="float: right;">
 
             {% csrf_token %}
             <input type="submit" value="Logout">
 
         </form>
     </div>
-</div>
+</div> -->
 <div class="row">
     <div class="col-6"></div>
     <div class="col-6">
-        <a href="{% url 'create_todo' %}"><img style="height: 40px;" src="{% static 'images/icon-add.png' %}">Add To Do</a>
+        <a style="float: right;" href="{% url 'create_todo' %}"><img style="height: 40px;" src="{% static 'images/icon-add.png' %}">Add To Do</a>
     </div>
 </div>
 <div class="row">
-    <div class="col-3">
-        <table>
+    <div class="col-2">
+        
+    </div>
+    <div class="col-2">
+        <table style="float: right;">
             <tr>
                 <th>To-Do Management</th>
             </tr>
             <tr>
-                <td class="txt" id="edit">Edit</td>
+                <td style="text-align: center;" class="txt" id="edit">Edit</td>
             </tr>
             <tr>
-                <td class="txt" id="delete">Delete</td>
+                <td style="text-align: center;" class="txt" id="delete">Delete</td>
             </tr>
         </table>
     </div>
-    <div class="col-3">
+    <div class="col-6">
         <table border="1">
             <tr>
                 <th style="text-align: center;"></th>
@@ -63,7 +66,7 @@
 
         </table>
     </div>
-    <div class="col-6"></div>
+    <div class="col-2"></div>
 
 </div>
 {% endblock content %}

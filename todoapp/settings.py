@@ -87,9 +87,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'todo_app',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'root@123',
         'HOST': '127.0.0.1',
-        'PORT': '3307',
+        'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
         },
