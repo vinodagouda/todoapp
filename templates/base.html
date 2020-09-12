@@ -11,15 +11,26 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col">
+    <div class="container">
+        <div class="row" style="background-color: #e9ecef;">
+            <div class="col">
+                <a style="text-decoration: none;" href="{% url 'login_success' %}">
                     <h3>Welcome to to-do app</h3>
-                </div>
-                <div class="col">
-                    <img style="border:1px solid blue; height:150px; width:100px;" src="{% static 'images/todo_logo.jpg' %}" />
-                </div>
+                </a>
+            </div>
+            <div class="col">
+                <img style="border:1px solid blue; height:50px; width:100px;float: right;" src="{% static 'images/todo_logo.jpg' %}" />
+            </div>
+        </div>
+        <div class="row" style="background-color: #e9ecef;">
+            <div class="col-6">
+                <p>Hi <b style="color: blue;text-transform: capitalize;">{{user.username}}</b>. You have logged in successfully!</p>
+            </div>
+            <div class="col-6">
+                <form method="POST" action="/logout/" style="float: right;">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout">
+                </form>
             </div>
         </div>
     </div>

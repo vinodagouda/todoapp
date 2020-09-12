@@ -1,10 +1,12 @@
 {% extends 'base.html' %} {% block content %}
+<div class="row">
+    <p style="margin-left: 33%;margin-top: 2%;">Please create/update to-do here.</p>
+</div>
 <div class="row" style="margin-top: 30px;">
-    <div class="col">
-        <p>Hi <b style="color: blue;">{{user.username}}</b>, please create to-do here.</p>
+    <div class="col-2">
+        
     </div>
-
-    <div class="col">
+    <div class="8">
         {% if not id %}
             <form method="POST" action="/todo/create-todo/">
         {% else %}
@@ -20,6 +22,9 @@
                 <input type="submit" value="Update">
             {% endif %}
         </form>
+    </div>
+    <div class="col-2">
+        
     </div>
 </div>
 <script>
