@@ -5,14 +5,16 @@ class ToDoCreateForm(forms.ModelForm):
     
     class Meta:
         model = ToDoDetails
-        fields = [ 'title', 'description', 'user' ]
-#        exclude = ('user', )
+        # fields = '__all__'
+        # fields = [ 'title', 'description', 'user' ]
+        fields = [ 'title', 'description']
+        exclude = ('user',)
 
-        widgets = {
-#            'title': forms.CharField(attrs={'placeholder': 'Add To Do Title'}),
-#            'description': forms.Textarea(attrs={'placeholder': 'Add To Do description'}),
-            'user': forms.HiddenInput()
-        }
+#         widgets = {
+# #            'title': forms.CharField(attrs={'placeholder': 'Add To Do Title'}),
+# #            'description': forms.Textarea(attrs={'placeholder': 'Add To Do description'}),
+#             'user': forms.HiddenInput()
+#         }
     
 """class ProductBasicForm(forms.ModelForm):
 

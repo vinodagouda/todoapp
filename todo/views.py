@@ -26,10 +26,13 @@ def create_todo(request):
     if request.method == 'POST':
         form = ToDoCreateForm(request.POST)
         if form.is_valid():
+            form = form.save(commit=False)
+            form.user = request.user
             form.save()
             return HttpResponseRedirect(reverse('login_success'))
     else:
         form = ToDoCreateForm()
+
     return render(request, "create-todo.html", locals())
 
 
