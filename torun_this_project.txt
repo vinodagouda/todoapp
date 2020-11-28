@@ -1,0 +1,23 @@
+Step 1: Create virtual env
+	-virtualenv -p python3 git_venv
+Step 2: Activate virtual env
+	-source git_venv/bin/activate
+Step 3: Run pip freeze and see what packages have come by default after creating virtual env.
+
+Step 4: Install Django
+	-pip install django==2.2
+	-pip freeze
+
+Step 5: Create DB and remove old migrations
+	-find . -name "00*" | grep -v pycache | xargs rm
+
+Step 6: Deactivate virtual env and run the below command
+	-sudo apt-get install python3.6-dev libmysqlclient-dev
+
+Step 7: Activate virtual env and run below command
+	-pip install mysqlclient
+
+Step 8: Then run the following below commands
+	-python manage.py makemigrations
+	-python manage.py migrate
+	-python manage.py runserver
