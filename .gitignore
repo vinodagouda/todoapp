@@ -1,0 +1,4 @@
+# Ignore Binary files from user-activity-tracking
+*__pycache__
+*.pyc
+*/migrations/
